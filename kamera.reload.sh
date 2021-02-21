@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/user
+cd /home/PCUser
 git clone https://github.com/patjak/facetimehd-firmware.git
 cd facetimehd-firmware
 make

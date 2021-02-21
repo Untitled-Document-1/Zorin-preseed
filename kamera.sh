@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/user
+cd /home/PCUser
 sudo apt-get update
 sudo apt-get install -y git
 sudo apt-get install -y curl xzcat cpio
