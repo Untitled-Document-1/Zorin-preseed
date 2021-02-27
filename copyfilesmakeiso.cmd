@@ -18,8 +18,8 @@ REM Note when extracting the Zorin ISO, mount the image using Windows Explorer n
 REM Extracting with 7-zip gave a payload error with Zorin-OS-15.3-Lite-64-bit.iso.
 REM Create a folder tree like below, extract the ISO image contents to the 'ISO' folder and clone this Github repo to the 'Zorin-preseed' folder (or move it from where it is now, to that folder)
 REM
-REM C:\Zorin
-REM ├───ISO (the contents of the ISO file as extracted by you)
+REM D:\Zorin
+REM ├───ISO (the contents of the ISO file as copied over by you)
 REM └───Zorin-preseed (the Github repo)
 REM
 REM Once you're ready, open a command prompt, change directory to the 'Zorin-preseed' folder, and type copyfilesmakeiso.cmd (the name of this script)
