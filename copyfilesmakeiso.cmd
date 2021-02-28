@@ -37,5 +37,5 @@ SET _DATESTRING=!DATE:~0,2!!DATE:~3,2!!DATE:~6,4!
 SET _TIMESTRING=!TIME:~0,2!!TIME:~3,2!
 SET _TIMESTRING=!_TIMESTRING: =0!
 ECHO Building new ISO file
-"%mkisofs_path%\mkisofs.exe" -D -r -V "UNATTENDED_ZORIN" -duplicates-once -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o unattanded-Zorin-!_DATESTRING!_!_TIMESTRING!.iso ISO
+"%mkisofs_path%\mkisofs.exe" -D -r -V "UNATTENDED_ZORIN" -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o unattanded-Zorin-!_DATESTRING!_!_TIMESTRING!.iso ISO
 POPD
