@@ -6,7 +6,7 @@ REM
 REM First you'll want to search your local filesystem for a file called mkisofs.exe, and SET the path to it below
 REM Hint: 'where /R \ mkisofs.exe' might be useful
 REM If you can't find it, download it as part of the cdrtools package from http://smithii.com/cdrtools
-SET "mkisofs_path=D:\Zorin\cdrtools-latest\mkisofs.exe"
+SET "mkisofs_path=D:\Zorin\cdrtools-latest"
 REM
 REM The flow goes like this:
 REM 1/ Mount Zorin ISO (do manually in Explorer, double-click Zorin ISO file)
