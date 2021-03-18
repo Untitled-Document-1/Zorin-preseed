@@ -30,7 +30,7 @@ d-i partman/confirm_nooverwrite boolean true
 #user
 d-i passwd/user-fullname string PCUser
 d-i passwd/username string PCUser
-d-i passwd/user-password-crypted password password
+d-i passwd/user-password-crypted password $6$uFgaPxPRVFgNRx$PWJJlhRYfZUE7SZFK6WauRBXJnRv/.Txk0W6aNAVxMbfWEetNJ4lWOftEWEzW2kt./y7P7xlpS2TRfi2VGnSa.
 d-i user-setup/allow-password-weak boolean true
 
 # Custom Commands
