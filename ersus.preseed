@@ -44,7 +44,7 @@ d-i netcfg/get_domain string user-wlw
 d-i netcfg/choose_interface select auto
 
 # Use non-free packages
-ubiquoty ubiquity/use_nonfree boolean true
+ubiquity ubiquity/use_nonfree boolean true
 
 #Clock
 d-i clock-setup/utc-auto boolean true
