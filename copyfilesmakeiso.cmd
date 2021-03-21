@@ -26,8 +26,7 @@ REM Once you're ready, open a command prompt, change directory to the 'Zorin-pre
 
 PUSHD ..
 ECHO Copying Github files
-IF NOT EXIST ISO\files MD ISO\files
-COPY /Y /V Zorin-preseed\files ISO\files
+XCOPY /F /V /Y Zorin-preseed\files ISO\files\
 COPY /Y /V Zorin-preseed\*.preseed ISO
 COPY /Y /V Zorin-preseed\*.sh ISO
 COPY /Y /V Zorin-preseed\locale ISO
