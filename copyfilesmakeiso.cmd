@@ -27,7 +27,7 @@ REM Once you're ready, open a command prompt, change directory to the 'Zorin-pre
 PUSHD ..
 ECHO Copying Github files
 XCOPY /F /V /Y Zorin-preseed\files ISO\files\
-COPY /Y /V Zorin-preseed\*.preseed ISO
+XCOPY /F /V /Y Zorin-preseed\preseed ISO\preseed\
 COPY /Y /V Zorin-preseed\*.sh ISO
 COPY /Y /V Zorin-preseed\locale ISO
 COPY /Y /V Zorin-preseed\menuentries.cfg ISO\isolinux
