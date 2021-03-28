@@ -14,7 +14,7 @@ REM 2/ Copy all ISO files from mounted drive to temporary 'ISO' folder (do manua
 REM 3/ Copy Github files to appropriate paths in temporary 'ISO' folder (this script does this bit)
 REM 4/ Build new ISO file from temporary 'ISO' folder contents (this script does this bit)
 REM
-REM Note when extracting the Zorin ISO, mount the image using Windows Explorer native mounting. 
+REM Note when extracting the Zorin ISO, mount the image using Windows Explorer native mounting.
 REM Extracting with 7-zip gave a payload error with Zorin-OS-15.3-Lite-64-bit.iso.
 REM Create a folder tree like below, extract the ISO image contents to the 'ISO' folder and clone this Github repo to the 'Zorin-preseed' folder (or move it from where it is now, to that folder)
 REM
@@ -28,7 +28,7 @@ PUSHD ..
 ECHO Copying Github files
 XCOPY /F /V /Y Zorin-preseed\files ISO\files\
 XCOPY /F /V /Y Zorin-preseed\preseed ISO\preseed\
-COPY /Y /V Zorin-preseed\*.sh ISO
+XCOPY /F /V /Y Zorin-preseed\shellscripts ISO\shellscripts\
 COPY /Y /V Zorin-preseed\locale ISO
 COPY /Y /V Zorin-preseed\menuentries.cfg ISO\isolinux
 COPY /Y /V Zorin-preseed\grub.cfg ISO\boot\grub

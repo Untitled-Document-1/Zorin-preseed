@@ -37,8 +37,8 @@ d-i user-setup/allow-password-weak boolean true
 ubiquity ubiquity/success_command string \
   cp -r /cdrom/files /target/home/ ;\
   cp /cdrom/locale /target/etc/default/locale ;\
-  cp /cdrom/kamera.sh /target/home/kamera.sh ;\
-  cp /cdrom/kamera.reload.sh /target/home/kamera.reload.sh
+  cp /cdrom/shellscripts/kamera.sh /target/home/kamera.sh ;\
+  cp /cdrom/shellscripts/kamera.reload.sh /target/home/kamera.reload.sh
 
 # Network
 d-i netcfg/get_hostname string user-wlw

@@ -9,7 +9,7 @@ done
 unset 'liste[${#liste[@]}-1]'
 for i in "${liste[@]}"
   do
-    sudo bash /cdrom/hdparm.sh /dev/$i
+    sudo bash /cdrom/shellscripts/hdparm.sh /dev/$i
 done
 
 list=$(lsblk | grep -o "nvme"[0-9][a-z][0-9] | uniq)
@@ -21,6 +21,5 @@ done
 #unset 'liste1[${#liste1[@]}-1]'
 for i in "${liste1[@]}"
   do
-    sudo bash /cdrom/hdparm.sh /dev/$i
+    sudo bash /cdrom/shellscripts/hdparm.sh /dev/$i
 done
-
