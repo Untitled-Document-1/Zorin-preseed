@@ -48,7 +48,9 @@ Some Macbooks have problems with the camera-driver. This script reloads a free d
 ## File "kamera.reload.sh"
 This script is a reduced version of "script.sh". This is for times when the kernel is reinstalled due to the updates. This reloads the driver and recompile it.
 
-## Workflow to create an preseeded image
+## Workflow to create a preseeded image
+
+Use a Linux machine to do this. Windows can be used to build an ISO file for testing with VirtualBox, but the Windows-built ISO file won't be suitable for burning to a USB stick (it won't have been treated with `isobybrid`).
 
 1. Install the `syslinux-utils` to obtain `isohybrid`. This is needed to make the USB stick bootable:
 ```
@@ -60,12 +62,12 @@ git clone https://github.com/Untitled-Document-1/Zorin-preseed
 ```
 3. Download Zorin OS Lite/Core/Ultimate from https://zorinos.com/download/
 
-Mount the ISO file, and copy the ISO contents to a directory named ISO:
+Mount the ISO file, and copy the ISO contents to a directory named `ISO`:
 ```
 mkdir mnt-dir
 mount -o loop Zorin-OS-15.3-Lite-64-bit.iso mnt-dir/
 rsync -a mnt-dir/ ISO/
-umount mnt-dir && rm -rf mnt-dir # cleanup; I'm finished with the vanilla ISO
+umount mnt-dir && rm -rf mnt-dir
 ```
 4. `chmod +x copyfilesmakeiso.sh` and run `./copyfilesmakeiso.sh` (or under Windows, `copyfilesmakeiso.cmd`). This will copy the files to the correct location in the ISO directory, and build an ISO file. Note that the ISO directory must be at the same directory level as the cloned repo.
 5. Burn the ISO file to your USB stick with:
@@ -73,6 +75,8 @@ umount mnt-dir && rm -rf mnt-dir # cleanup; I'm finished with the vanilla ISO
 blkid # identify USB disk (/dev/sdX)
 dd if=/zorin-files/unattended-Zorin.iso of=/dev/sdc bs=4M; sync
 ```
+
+If you're stuck with a Windows build machine, and your target device has UEFI firmware, it should be possible to avoid the ISO file building. Format the stick as `FAT32`. Copy all the repo files/directories into the `ISO` directory, per `copyfilesmakeiso.cmd`, and then copy the `ISO` directory contents onto the USB stick. The stick should then be bootable in UEFI mode.
 
 ### Full
 If there should be additional packages installed, the file steps.txt has the commands to do so.
