@@ -69,7 +69,7 @@ mount -o loop Zorin-OS-15.3-Lite-64-bit.iso mnt-dir/
 rsync -a mnt-dir/ ISO/
 umount mnt-dir && rm -rf mnt-dir
 ```
-4. `chmod +x copyfilesmakeiso.sh` and run `./copyfilesmakeiso.sh` (or under Windows, `copyfilesmakeiso.cmd`). This will copy the files to the correct location in the ISO directory, and build an ISO file. Note that the ISO directory must be at the same directory level as the cloned repo.
+4. `chmod +x copyfilesmakeiso.sh` and run `./copyfilesmakeiso.sh` (or under Windows, `copyfilesmakeiso.cmd`). This will copy the files to the correct location in the `ISO` directory, and build an ISO file. Note that the `ISO` directory must be at the same directory level as the cloned repo.
 5. Burn the ISO file to your USB stick with:
 ```
 blkid # identify USB disk (/dev/sdX)
