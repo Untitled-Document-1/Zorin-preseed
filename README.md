@@ -50,13 +50,28 @@ This script is a reduced version of "script.sh". This is for times when the kern
 
 ## Workflow to create an preseeded image
 
-### only the preseeding
-1. To modify an existing image, you have to mount the existing image with 'sudo mount -o loop image.img mnt' and copy everything to the root directory of the mounted image, or an existing directory as mentioned above.
-2. Now it is possible to make changes to the files as required.
-3. With the following command you can create a *.iso* file from the working directory. 
-
+1. Install the `syslinux-utils` to obtain `isohybrid`. This is needed to make the USB stick bootable:
 ```
-mkisofs -D -r -V "UNATTENDED_ZORIN" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o unattanded-Zorin.iso iso
+sudo apt install syslinux-utils
+```
+2. Clone this repo somewhere:
+```
+git clone https://github.com/Untitled-Document-1/Zorin-preseed
+```
+3. Download Zorin OS Lite/Core/Ultimate from https://zorinos.com/download/
+
+Mount the ISO file, and copy the ISO contents to a directory named ISO:
+```
+mkdir mnt-dir
+mount -o loop Zorin-OS-15.3-Lite-64-bit.iso mnt-dir/
+rsync -a mnt-dir/ ISO/
+umount mnt-dir && rm -rf mnt-dir # cleanup; I'm finished with the vanilla ISO
+```
+4. `chmod +x copyfilesmakeiso.sh` and run `./copyfilesmakeiso.sh` (or under Windows, `copyfilesmakeiso.cmd`). This will copy the files to the correct location in the ISO directory, and build an ISO file. Note that the ISO directory must be at the same directory level as the cloned repo.
+5. Burn the ISO file to your USB stick with:
+```
+blkid # identify USB disk (/dev/sdX)
+dd if=/zorin-files/unattended-Zorin.iso of=/dev/sdc bs=4M; sync
 ```
 
 ### Full
@@ -75,4 +90,4 @@ If there should be additional packages installed, the file steps.txt has the com
 ## Known issues
 - The installation isn't fully unattended. Because of an unknown reason this is not possible. There must be a minimum one command uncommented.
 - The computer restarts directly after the installation. So if the boot priority of the USB device is higher than the boot priority of the HDD, the computer could end up in an endless loop of installations. At the moment the option to continue the installation will be shown, if there are other installed operating systems.
-- The language and the keyboard layout are set to english and en_US. These things are individualized after the installation is finished. 
+- The language and the keyboard layout are set to english and en_US. These things are individualized after the installation is finished.
