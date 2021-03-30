@@ -73,7 +73,7 @@ umount mnt-dir && rm -rf mnt-dir
 5. Burn the ISO file to your USB stick with:
 ```
 blkid # identify USB disk (/dev/sdX)
-dd if=/zorin-files/unattended-Zorin.iso of=/dev/sdc bs=4M; sync
+dd if=/zorin-files/unattended-Zorin.iso of=/dev/sdX bs=4M; sync
 ```
 
 If you're stuck with a Windows build machine, and your target device has UEFI firmware, it should be possible to avoid the ISO file building. Format the stick as `FAT32`. Copy all the repo files/directories into the `ISO` directory, per `copyfilesmakeiso.cmd`, and then copy the `ISO` directory contents onto the USB stick. The stick should then be bootable in UEFI mode.
