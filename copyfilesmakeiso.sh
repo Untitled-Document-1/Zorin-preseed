@@ -6,5 +6,5 @@ cp Zorin-preseed/locale ISO
 cp Zorin-preseed/menuentries.cfg ISO/isolinux
 cp Zorin-preseed/grub.cfg ISO/boot/grub
 mkisofs -D -r -V "UNATTENDED_ZORIN" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o unattended-Zorin.iso ISO
-isohybrid unattended-Zorin.iso # make ISO bootable
+isohybrid unattended-Zorin.iso # make ISO bootable, add -u option for UEFI boot. See https://manpages.ubuntu.com/manpages/focal/man1/isohybrid.1.html
 popd
